@@ -102,3 +102,9 @@ Fehlermöglichkeiten:
 2. Fehler beim Abstreifen der geschützten Attribute in der Pub-DB. Rollback von (1) erwartet, da sonst Pub_restricted != Pub_public. D.h. Inkonsistenzen in Web GIS Client / WMS / WFS. Zudem auch nicht mehr stimmit mit XTF auf Dateiablage.
 3. Fehler beim Exportieren der Daten. Rollback (2) und (1) wird erwartet.
 
+### UC-4
+Edit -> Edit-Stage
+
+### UC-5
+XTF-Import (generalisiert: File-Import)
+
