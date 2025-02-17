@@ -87,7 +87,7 @@ flowchart LR
     pubdbpublic --(3) ili2pg--> pubxtf
 ```
 
-Stand heute (wie es wäre, wenn des den zukünftigen Prozess gäbe): Die Daten werden von der Edit-DB in die Pub-DB kopiert (1). Dabei wird eine Edit-DB-Connection und eine Pub-DB-Connection geöffnet und nach dem Kopieren wird committed. Anschliessend werden die geschützten Attribute mit einem SqlExecutor abgestreift (2). Dabei wird eine neue Pub-DB-Connection verwendet. Abschliessend wird die XTF-Datei aus der Pub-DB exportiert (3). Es wird eine neue Pub-DB-Connection verwendet.
+Stand heute (wie es wäre, wenn es den zukünftigen Prozess gäbe): Die Daten werden von der Edit-DB in die Pub-DB kopiert (1). Dabei wird eine Edit-DB-Connection und eine Pub-DB-Connection geöffnet und nach dem Kopieren wird committed. Anschliessend werden die geschützten Attribute mit einem SqlExecutor abgestreift (2). Dabei wird eine neue Pub-DB-Connection verwendet. Abschliessend wird die XTF-Datei aus der Pub-DB exportiert (3). Es wird eine neue Pub-DB-Connection verwendet.
 
 Commit-Abfolge heute:
 
@@ -98,7 +98,7 @@ Commit-Abfolge heute:
 
 Fehlermöglichkeiten:
 
-1. Fehler beim Kopioeren der Daten von Edit- nach Pub-DB. Keine Problem. Job bricht ab.
+1. Fehler beim Kopieren der Daten von Edit- nach Pub-DB. Keine Problem. Job bricht ab.
 2. Fehler beim Abstreifen der geschützten Attribute in der Pub-DB. Rollback von (1) erwartet, da sonst Pub_restricted != Pub_public. D.h. Inkonsistenzen in Web GIS Client / WMS / WFS. Zudem auch nicht mehr stimmit mit XTF auf Dateiablage.
 3. Fehler beim Exportieren der Daten. Rollback (2) und (1) wird erwartet.
 
